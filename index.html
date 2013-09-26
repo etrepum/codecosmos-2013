@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Bob Ippolito" />
+  <title>Teaching with CodeCosmos</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+    </style>
+    <link rel="stylesheet" href="css/simple.css"/>
+  <link rel="stylesheet" media="print" href="reveal.js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+    <link rel="stylesheet" href="css/slides.css"/>
+    <script src="d3/d3.min.js"></script>
+    <script src="js/slides.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Teaching with CodeCosmos</h1>
+    <h2 class="author">Bob Ippolito</h2>
+    <h3 class="date">RuPy 2013<br/>Budapest, Hungary</h3>
+</section>
+
+<section id="how-did-i-get-here" class="slide level1">
+<h1>How did I get here?</h1>
+<ul>
+<li>Using computers since before I could read</li>
+<li>Professionally since 1997</li>
+<li>Founded a company and had a successful exit</li>
+<li>Ended up with a normal job by accident</li>
+<li>Wasn't passionate about it</li>
+</ul>
+</section>
+<section id="z160" class="slide level1">
+<h1></h1>
+<p><img src="img/z160.jpg" class="landscape" alt="Zenith Z-160"/></p>
+</section>
+<section id="kq1" class="slide level1">
+<h1></h1>
+<p><img src="img/Kings_Quest_Tandy.png" class="landscape"
+  alt="Kings Quest I"/></p>
+</section>
+<section id="finding-a-mission" class="slide level1">
+<h1>Finding a mission</h1>
+<ul>
+<li>Wanted to do some social good</li>
+<li>Why not education?</li>
+<li>I know how to teach myself programming</li>
+<li>Can I teach others?</li>
+</ul>
+</section>
+<section id="ewd" class="slide level1">
+<h1></h1>
+<h2>
+It does not suffice to hone your own intellect (that will join you in your grave), you must teach others how to hone theirs.
+</h2>
+<p>– E.W. Dijkstra (<a href="https://twitter.com/DijkstraQuotes/status/357546511841763329"><span class="citation" data-cites="DijkstraQuotes">@DijkstraQuotes</span></a>)</p>
+</section>
+<section id="eg7-badge" class="slide level1">
+<h1></h1>
+<p><img src="img/61523_10151575635106253_749096641_n.jpg"
+class="portrait" alt="EG7 badge"/></p>
+</section>
+<section id="eg7" class="slide level1">
+<h1>EG7</h1>
+<ul>
+<li>Attended a wonderful conference with great people</li>
+<li>Met COO of The College Initiative</li>
+</ul>
+</section>
+<section id="jpl" class="slide level1">
+<h1></h1>
+<p><img src="img/jpl.jpg" class="landscape" alt="Curiosity at JPL" /></p>
+</section>
+<section id="the-college-initiative" class="slide level1">
+<h1>The College Initiative</h1>
+<ul>
+<li>Non-profit assistance for High School students</li>
+<li>Summer program to help prepare for college</li>
+<li>Why not open their minds to programming?</li>
+</ul>
+</section>
+<section id="i-have-no-idea" class="slide level1">
+<h1></h1>
+<p><img src="img/i-have-no-idea.jpg" class="landscape" alt="I have no idea what I'm doing"/></p>
+</section>
+<section id="can-i-use-a-service" class="slide level1">
+<h1>Can I use a service?</h1>
+<ul>
+<li>Khan Academy had no teaching tool</li>
+<li>Codeacademy had technical issues</li>
+<li>Could I make it work?</li>
+</ul>
+</section>
+<section id="nope" class="slide level1">
+<h1></h1>
+<p><img src="img/unplugged-internet.jpg" class="landscape" alt="Unplugged internet"/></p>
+</section>
+<section id="planning-to-build" class="slide level1">
+<h1>Planning to build</h1>
+<ul>
+<li>I need it to work without internet</li>
+<li>I want it to also work online</li>
+<li>I don't want to install anything</li>
+<li>Can depend on Chrome</li>
+</ul>
+</section>
+<section id="language" class="slide level1">
+<h1>Language</h1>
+<ul>
+<li>JavaScript is the only viable in-browser language</li>
+<li>Can't do better given only a few weeks</li>
+</ul>
+</section>
+<section id="canvas" class="slide level1">
+<h1>Canvas</h1>
+<ul>
+<li>Strings aren't interesting to today's students</li>
+<li>Khan Academy uses Processing.js</li>
+<li>I knew others who have taught with Processing</li>
+<li>Couldn't find a similar library that did a better job</li>
+</ul>
+</section>
+<section id="editing" class="slide level1">
+<h1>Editing</h1>
+<ul>
+<li>I looked at Ace because Khan Academy uses it</li>
+<li>CodeMirror also had a lot of street cred (WebKit inspector)</li>
+<li>I found CodeMirror's examples to be easier to understand</li>
+<li>CodeMirror works great</li>
+</ul>
+</section>
+<section id="editing-in-action" class="slide level1">
+<h1></h1>
+<p><img src="img/codecosmos-tree.png" class="landscape" alt="CodeCosmos editor"/></p>
+</section>
+<section id="linting" class="slide level1">
+<h1>Linting</h1>
+<ul>
+<li>JavaScript syntax is hard, so linting is essential</li>
+<li>JSHint worked particularly well</li>
+<li>CodeMirror ships with an example</li>
+<li>I moved it to a Web Worker for performance reasons</li>
+</ul>
+</section>
+<section id="javascript" class="slide level1">
+<h1>JavaScript :(</h1>
+<ul>
+<li>JavaScript sandboxing isn't a thing</li>
+<li>Web Workers can't talk to a canvas</li>
+<li>iframes don't execute concurrently</li>
+<li>How can I cheat?</li>
+</ul>
+</section>
+<section id="cheating" class="slide level1">
+<h1>Cheating</h1>
+<ul>
+<li>Increment a counter for function calls and loop iterations</li>
+<li>If the counter gets too big, abort!</li>
+</ul>
+</section>
+<section id="rewriting-javascript" class="slide level1">
+<h1>Rewriting JavaScript</h1>
+<ul>
+<li>Parse with Esprima</li>
+<li>Transform with Estraverse (insert cheats)</li>
+<li>Write back out with Escodegen</li>
+<li>Eval directly, not in a Web Worker</li>
+</ul>
+</section>
+<section id="sandboxing-in-action" class="slide level1">
+<h1></h1>
+<p><img src="img/codecosmos-sandbox.png" class="landscape" alt="CodeCosmos sandbox"/></p>
+</section>
+<section id="wtf-before" class="slide level1">
+<h1></h1>
+<div class="bigger">
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> wtf = <span class="kw">function</span> (a, b, arr) {
+  <span class="ot">arr</span>.<span class="fu">forEach</span>(wtf);
+};
+<span class="fu">wtf</span>(<span class="kw">null</span>, <span class="kw">null</span>, [<span class="dv">1</span>]);</code></pre>
+</div>
+</section>
+<section id="wtf-after" class="slide level1">
+<h1></h1>
+<div class="bigger">
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="st">&#39;use strict&#39;</span>;
+<span class="kw">var</span> __f = <span class="fu">__catchErrors</span>(
+  <span class="kw">function</span> <span class="fu">__userCode$1</span>() {
+    <span class="kw">var</span> wtf = <span class="fu">__catchErrors</span>(
+      <span class="kw">function</span> <span class="fu">wtf$1</span>(a, b, arr) {
+        <span class="kw">if</span> (++__ctr &gt;= __maxctr) {
+          __cont = <span class="kw">false</span>;
+          <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">Error</span>(<span class="st">&#39;…&#39;</span>);
+        }
+        <span class="ot">arr</span>.<span class="fu">forEach</span>(wtf);
+      });
+      <span class="fu">wtf</span>(<span class="kw">null</span>, <span class="kw">null</span>, [<span class="dv">1</span>]);
+  });
+<span class="fu">__f</span>();</code></pre>
+</div>
+</section>
+<section id="web-app" class="slide level1">
+<h1>Web App</h1>
+<ul>
+<li>AngularJS</li>
+<li>Font.js</li>
+<li>jQuery</li>
+<li>JSZipTools</li>
+<li>Underscore</li>
+</ul>
+</section>
+<section id="persistence" class="slide level1">
+<h1>Persistence</h1>
+<ul>
+<li>PouchDB</li>
+<li>CouchDB</li>
+<li>follow, request, node-static</li>
+</ul>
+</section>
+<section id="persistence-in-action" class="slide level1">
+<h1></h1>
+<p><img src="img/codecosmos-persistence.png" class="landscape" alt="CodeCosmos persistence"/></p>
+</section>
+<section id="build-tools" class="slide level1">
+<h1>Build tools</h1>
+<ul>
+<li>Grunt</li>
+<li>Bower</li>
+</ul>
+</section>
+<section id="css-and-fonts" class="slide level1">
+<h1>CSS and Fonts</h1>
+<ul>
+<li>Pure CSS</li>
+<li><span class="font-awesome icon-thumbs-up"></span> Font Awesome <span class="font-awesome icon-heart"></span></li>
+<li><span class="kontrapunkt">Kontrapunkt Bold</span></li>
+<li><span class="source-code-pro">Source Code Pro</span></li>
+<li><span class="ubuntu-regular">Ubuntu Regular</span></li>
+</ul>
+</section>
+<section id="twitter-login" class="slide level1">
+<h1></h1>
+<p><img src="img/twitter-login.jpg" class="landscape" alt="Twitter Login"/></p>
+</section>
+<section id="codecosmos-login" class="slide level1">
+<h1></h1>
+<p><img src="img/codecosmos-login.jpg" class="landscape" alt="CodeCosmos login"/></p>
+</section>
+<section id="hosting-v0" class="slide level1">
+<h1>Hosting v0</h1>
+<ul>
+<li>My laptop</li>
+</ul>
+</section>
+<section id="hosting-v1" class="slide level1">
+<h1>Hosting v1</h1>
+<ul>
+<li>GitHub pages</li>
+<li>Iris Couch</li>
+<li>Nodejitsu</li>
+</ul>
+</section>
+<section id="hosting-v2" class="slide level1">
+<h1>Hosting v2</h1>
+<p><img src="img/rackspace-logo.svg" alt="Rackspace Logo"/></p>
+<ul>
+<li>CouchDB + custom module</li>
+<li>No more node.js</li>
+</ul>
+</section>
+<section id="courier-index" class="slide level1">
+<h1></h1>
+<p><img src="img/946585_272865049520270_623477349_n.jpg"
+    class="portrait"
+    alt="The Courier-Index front-page featuring Jamie and me"/></p>
+</section>
+<section id="lee-county-senior-high" class="slide level1">
+<h1>Lee County Senior High</h1>
+<ul>
+<li>No cell coverage</li>
+<li>No internet connectivity</li>
+<li>Wasn't quite prepared</li>
+<li>But I had local copies of what I needed</li>
+</ul>
+</section>
+<section id="me-circa-1992" class="slide level1">
+<h1></h1>
+<video src="img/me.mp4" poster="img/vid-me-1992.jpg" controls class="landscape"></video>
+
+</section>
+<section id="monday-challenge-line" class="slide level1">
+<h1></h1>
+<p><img src="img/challenge-monday-line.png"
+    class="landscape"
+    alt="Lines &amp; coordinates"/></p>
+</section>
+<section id="alchemy-memphis" class="slide level1">
+<h1></h1>
+<p><img src="img/alchemy-drinks.jpg"
+    class="portrait"
+    alt="Dinner &amp; drinks at Alchemy in Memphis"/></p>
+</section>
+<section id="tuesday-help-student" class="slide level1">
+<h1></h1>
+<p><img src="img/585_271796256293816_431985305_n.jpg"
+    class="portrait"
+    alt="Helping a student sort out a syntax error in her code" /></p>
+</section>
+<section id="olympic-rings" class="slide level1">
+<h1></h1>
+<p><img src="img/Olympic_Rings.svg"
+    class="landscape"
+    alt="Olympic Rings"/></p>
+</section>
+<section id="ashlee-rgb" class="slide level1">
+<h1></h1>
+<p><img src="img/941238_272092032930905_2019553029_n.jpg"
+    class="portrait"
+    alt="Ashlee discovering how to make yellow from RGB components during the Olympic Rings challenge"/></p>
+</section>
+<section id="jim-neelys" class="slide level1">
+<h1></h1>
+<p><img src="img/1069390_10151721359976253_1227452275_n.jpg"
+    class="landscape"
+    alt="Jim Neely's Interstate BBQ in Memphis" /></p>
+</section>
+<section id="wednesday-don-knuth" class="slide level1">
+<h1></h1>
+<video src="img/The Electronic Coach - YouTube [360p].mp4"
+    poster="img/vid-don-knuth.jpg" controls class="landscape"></video>
+
+</section>
+<section id="brasha-rings" class="slide level1">
+<h1></h1>
+<p><img src="img/21399_272093619597413_58531329_n.jpg"
+    class="portrait"
+    alt="Brasha is stoked that she got the colors and pattern right for the Olympic rings" /></p>
+</section>
+<section id="ground-zero" class="slide level1">
+<h1></h1>
+<p><img src="img/21385_4993070635857_656989762_n.jpg"
+    class="portrait"
+    alt="TCI staff night out at Ground Zero!"></p>
+</section>
+<section id="thurs-day-in-the-life" class="slide level1">
+<h1></h1>
+<video src="img/A_Day_in_the_Life_-_Computer_Programmer.mp4"
+    poster="img/vid-computer-programmer.jpg"
+    controls class="landscape"></video>
+
+</section>
+<section id="grl-shirt" class="slide level1">
+<h1></h1>
+<p><img src="img/941227_272586392881469_1113510962_n.jpg"
+    class="portrait"
+    alt="Note the Graffiti Research Lab t-shirt :)"/></p>
+</section>
+<section id="jordan-3d-triangle" class="slide level1">
+<h1></h1>
+<p><img src="img/578361_272578132882295_17954676_n.jpg"
+     class="portrait"
+     alt="Jordan managed to make his Sierpinski triangle look like it's 3D"/></p>
+</section>
+<section id="fractals" class="slide level1">
+<h1></h1>
+<p><img src="img/970404_272577056215736_462365543_n.jpg"
+     class="portrait"
+     alt="Fractals in the classroom"/></p>
+</section>
+<section id="fat-babys-catfish" class="slide level1">
+<h1></h1>
+<p><img src="img/969738_10151725200766253_130031342_n-square.jpg"
+     class="portrait"
+     alt="Catfish lover parking only - all others will be pan-fried (at Fat Baby's Catfish House in Cleveland)"/></p>
+</section>
+<section id="friday-books" class="slide level1">
+<h1></h1>
+<p><img src="img/993051_10151719747726253_1827182736_n.jpg"
+     class="portrait"
+     alt="The Nature of Code (and other programming books)"/></p>
+</section>
+<section id="students-and-staff" class="slide level1">
+<h1></h1>
+<p><img src="img/1005752_272928776180564_364959941_n.jpg"
+     class="portrait"
+     alt="TCI students and staff after our last day of coding class"/></p>
+</section>
+<section id="thank-you-card" class="slide level1">
+<h1></h1>
+<p><img src="img/969338_10151726640286253_1988588723_n.jpg"
+     class="portrait"
+     alt="Fantastic thank you card from the students"/></p>
+</section>
+<section id="rooftop-bar" class="slide level1">
+<h1></h1>
+<p><img src="img/1001874_10151726866646253_1491639192_n.jpg"
+     class="landscape"
+     alt="Madison Hotel's rooftop bar in Memphis at sunset"/></p>
+</section>
+<section id="gus-fried-chicken" class="slide level1">
+<h1></h1>
+<p><img src="img/1005284_10151728747961253_1719802718_n.jpg"
+     class="landscape"
+     alt="Gus's Fried Chicken in Memphis"/></p>
+</section>
+<section id="whats-next" class="slide level1">
+<h1>What's next?</h1>
+<ul>
+<li><a href="http://exercism.io">exercism.io</a></li>
+<li>More volunteering</li>
+<li>Keep looking for inspiration</li>
+<li>Any ideas? Would love to hear them</li>
+</ul>
+</section>
+<section id="thanks" class="slide level1">
+<h1>Thanks!</h1>
+<table>
+<col style="width: 19%" /><col style="width: 65%" /><tbody>
+<tr class="odd">
+<td style="text-align: left;"><p><strong>Slides</strong></p></td>
+<td style="text-align: left;"><p><a href="http://bob.ippoli.to/codecosmos-2013/">http://bob.ippoli.to/codecosmos-2013/</a></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p><strong>Source</strong></p></td>
+<td style="text-align: left;"><p><a href="https://github.com/etrepum/codecosmos-2013">github.com/etrepum/codecosmos-2013</a></p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><p><strong>Email</strong></p></td>
+<td style="text-align: left;"><p>bob@redivi.com</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p><strong>Twitter</strong></p></td>
+<td style="text-align: left;"><p><span class="citation" data-cites="etrepum">@etrepum</span></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: false,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>
