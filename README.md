@@ -1,4 +1,4 @@
 Teaching with CodeCosmos
 RuPy 2013, Budapest, Hungary
 
-http://bob.ippoli.to/codecomsos-2013/
+http://bob.ippoli.to/codecosmos-2013/
